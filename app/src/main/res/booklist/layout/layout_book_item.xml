@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+                                                   android:layout_height="wrap_content"
+>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:layout_constraintGuide_begin="@dimen/view_margin_small"
+            android:id="@+id/gdlTop"/>
+    <androidx.constraintlayout.widget.Guideline
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:layout_constraintGuide_end="@dimen/view_margin_small"
+            android:id="@+id/gdlBottom"/>
+    <androidx.constraintlayout.widget.Guideline
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:layout_constraintGuide_begin="@dimen/view_margin_small"
+            android:id="@+id/gdlLeft"/>
+    <androidx.constraintlayout.widget.Guideline
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:layout_constraintGuide_end="@dimen/view_margin_small"
+            android:id="@+id/gdlRight"/>
+    <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/booklist_book_imv_size"
+            android:layout_height="@dimen/booklist_book_imv_size"
+            android:id="@+id/book_imv_cover"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintBottom_toTopOf="@+id/gdlBottom"
+            app:layout_constraintTop_toTopOf="@+id/gdlTop" app:layout_constraintStart_toStartOf="@+id/gdlLeft"
+            android:background="@android:color/darker_gray" android:scaleType="fitCenter"/>
+    <androidx.appcompat.widget.AppCompatTextView
+            android:text="@string/not_available"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/gdlTop"
+            app:layout_constraintStart_toEndOf="@+id/book_imv_cover"
+            app:layout_constraintEnd_toStartOf="@+id/gdlRight"
+            android:layout_marginStart="@dimen/view_margin_small" android:id="@+id/book_txv_title"
+            android:ellipsize="middle"
+            android:singleLine="true" style="@style/TextViewPrimary"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/book_txv_synopsis"
+            style="@style/TextViewMessage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/view_margin_small"
+            android:layout_marginTop="@dimen/view_margin_small"
+            android:layout_marginBottom="@dimen/view_margin_small"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="@string/not_available"
+            app:layout_constraintBottom_toTopOf="@+id/book_imv_add"
+            app:layout_constraintEnd_toStartOf="@+id/gdlRight"
+            app:layout_constraintStart_toEndOf="@+id/book_imv_cover"
+            app:layout_constraintTop_toBottomOf="@+id/book_txv_title" />
+
+    <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="@dimen/booklist_pgb_size"
+            android:layout_height="@dimen/booklist_pgb_size"
+            android:id="@+id/book_pgb_cover"
+            app:layout_constraintTop_toTopOf="@+id/book_imv_cover"
+            app:layout_constraintBottom_toBottomOf="@+id/book_imv_cover"
+            app:layout_constraintStart_toStartOf="@+id/book_imv_cover"
+            app:layout_constraintEnd_toEndOf="@+id/book_imv_cover"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/book_txv_price"
+            style="@style/TextViewBookPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/view_margin_small"
+            android:maxLines="1"
+            android:text="@string/booklist_label_price"
+            app:layout_constraintBottom_toTopOf="@+id/gdlBottom"
+            app:layout_constraintStart_toEndOf="@+id/book_imv_cover" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/book_imv_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/gdlBottom"
+            app:layout_constraintEnd_toStartOf="@+id/gdlRight"
+            app:srcCompat="@drawable/ic_add_circle_black" />
+</androidx.constraintlayout.widget.ConstraintLayout>

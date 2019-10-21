@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="booklist_book_imv_size">120dp</dimen>
+    <dimen name="booklist_pgb_size">30dp</dimen>
+</resources>

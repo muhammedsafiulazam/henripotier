@@ -1,0 +1,9 @@
+<resources>
+    <string name="booklist_title">Books</string>
+    <string name="booklist_error_load">Sorry! Failed to load books.</string>
+    <string name="booklist_button_retry">Retry</string>
+    <string name="booklist_label_price">%.2f€</string>
+    <string name="booklist_button_add">Add</string>
+    <string name="booklist_label_basket">Basket</string>
+    <string name="booklist_label_count">%d</string>
+</resources>

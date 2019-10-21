@@ -1,0 +1,16 @@
+<resources>
+    <style name="TextViewCurrency" parent="TextViewPrimary">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorRed</item>
+    </style>
+
+    <style name="TextViewProductPrice" parent="TextViewPrimary">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorRed</item>
+    </style>
+
+    <style name="TextViewProductCount" parent="TextViewPrimary">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorGrey</item>
+    </style>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="basket_pgb_size">30dp</dimen>
+    <dimen name="basket_product_imv_size">48dp</dimen>
+    <dimen name="basket_product_pgb_size">16dp</dimen>
+    <dimen name="basket_product_price_size">64dp</dimen>
+    <dimen name="basket_product_count_size">32dp</dimen>
+</resources>

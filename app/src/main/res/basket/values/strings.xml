@@ -1,0 +1,16 @@
+<resources>
+    <string name="basket_title">Basket</string>
+    <string name="basket_error_load">Sorry! Failed to load products.</string>
+    <string name="basket_message_empty">Basket is empty.</string>
+    <string name="basket_button_retry">Retry</string>
+    <string name="basket_product_label_price">%.2f€</string>
+    <string name="basket_product_label_count">x%d</string>
+
+    <string name="basket_label_price">Price:</string>
+    <string name="basket_label_offer">Reduction:</string>
+    <string name="basket_label_pay">Pay:</string>
+    <string name="basket_label_currency">%.2f€</string>
+    <string name="basket_label_empty">--</string>
+    <string name="basket_button_buy">Buy</string>
+
+</resources>

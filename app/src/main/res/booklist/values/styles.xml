@@ -1,0 +1,6 @@
+<resources>
+    <style name="TextViewBookPrice" parent="TextViewPrimary">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorRed</item>
+    </style>
+</resources>
