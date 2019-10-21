@@ -132,6 +132,10 @@ class BasketActivity : BaseActivity(), IBasketListener {
         updateBuy(true)
     }
 
+    private fun updateBuy(buy: Boolean) {
+        basket_btn_buy.isEnabled = buy
+    }
+
     private fun calculatePrice(products: List<Product>) : Float {
         var price = 0f
         products.forEach {
@@ -171,10 +175,6 @@ class BasketActivity : BaseActivity(), IBasketListener {
 
     private fun onClickRetry() {
         requestData()
-    }
-
-    private fun updateBuy(buy: Boolean) {
-        basket_btn_buy.isEnabled = buy
     }
 
     override fun onDestroy() {

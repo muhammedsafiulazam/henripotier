@@ -92,6 +92,7 @@ class BasketActivityModel : BaseActivityModel() {
             mProducts.clear()
             if (event.error != null) {
                 updateBusy(false)
+                updateData(null)
                 updateError(getActivity()?.getString(R.string.basket_error_load))
             } else {
                 mProducts.addAll(event.data as List<Product>)
