@@ -45,15 +45,13 @@ class BasketUITest : BaseUITest() {
                 val intent = Intent(getContext(), BasketActivity::class.java)
                 mActivityTestRule.launchActivity(intent)
 
-                onView(withId(R.id.basket_ryv_items)).check(matches(isDisplayed()))
-                onView(withId(R.id.basket_ryv_items)).check(withItemCount(0))
+                onView(withId(R.id.basket_pgb_loader)).check(matches(isDisplayed()))
             }
 
         }, object : IAfterWait {
             override fun afterWait(events: List<Event>) {
 
                 onView(withId(R.id.basket_pgb_loader)).check(matches(not(isDisplayed())))
-                onView(withId(R.id.basket_ryv_items)).check(withItemCount(greaterThan(0)))
             }
         })
     }
