@@ -1,10 +1,8 @@
-package com.muhammedsafiulazam.henripotier.feature.repositoryinfo
+package com.muhammedsafiulazam.henripotier.feature.basket
 
 import android.content.Intent
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
@@ -14,8 +12,8 @@ import com.muhammedsafiulazam.henripotier.core.BaseUITest
 import com.muhammedsafiulazam.henripotier.core.IAfterWait
 import com.muhammedsafiulazam.henripotier.core.IBeforeWait
 import com.muhammedsafiulazam.henripotier.event.Event
-import com.muhammedsafiulazam.henripotier.feature.repositorylist.RepositoryListActivity
-import com.muhammedsafiulazam.henripotier.feature.repositorylist.RepositoryViewHolder
+import com.muhammedsafiulazam.henripotier.feature.basket.event.BasketEventType
+import com.muhammedsafiulazam.henripotier.feature.booklist.BookListActivity
 import com.muhammedsafiulazam.henripotier.network.event.book.BookEventType
 import com.muhammedsafiulazam.henripotier.utils.RecyclerViewAssertion.withItemCount
 import org.hamcrest.Matchers.greaterThan
@@ -31,32 +29,31 @@ import org.junit.runner.RunWith
  */
 
 @RunWith(AndroidJUnit4ClassRunner::class)
-class RepositoryInfoUITest : BaseUITest() {
+class BasketUITest : BaseUITest() {
 
     @Rule @JvmField
-    var mActivityTestRule: ActivityTestRule<RepositoryListActivity> = ActivityTestRule(RepositoryListActivity::class.java, true, false)
+    var mActivityTestRule: ActivityTestRule<BasketActivity> = ActivityTestRule(BasketActivity::class.java, true, false)
 
     @Before
     fun beforeTest() {
     }
 
     @Test
-    fun checkSuccess_loadRepository() {
-        wait(BookEventType.GET_BOOKS, object : IBeforeWait {
+    fun checkSuccess_loadProducts() {
+        wait(BasketEventType.UPDATE_DATA, object : IBeforeWait {
             override fun beforeWait() {
-                val intent = Intent(getContext(), RepositoryListActivity::class.java)
+                val intent = Intent(getContext(), BasketActivity::class.java)
                 mActivityTestRule.launchActivity(intent)
 
-                onView(withId(R.id.booklist_pgb_loader)).check(matches(isDisplayed()))
-                onView(withId(R.id.booklist_ryv_items)).check(withItemCount(0))
+                onView(withId(R.id.basket_ryv_items)).check(matches(isDisplayed()))
+                onView(withId(R.id.basket_ryv_items)).check(withItemCount(0))
             }
 
         }, object : IAfterWait {
             override fun afterWait(events: List<Event>) {
 
-                onView(withId(R.id.booklist_pgb_loader)).check(matches(not(isDisplayed())))
-                onView(withId(R.id.booklist_ryv_items)).check(withItemCount(greaterThan(0)))
-                onView(withId(R.id.booklist_ryv_items)).perform(RecyclerViewActions.actionOnItemAtPosition<RepositoryViewHolder>(0, click()))
+                onView(withId(R.id.basket_pgb_loader)).check(matches(not(isDisplayed())))
+                onView(withId(R.id.basket_ryv_items)).check(withItemCount(greaterThan(0)))
             }
         })
     }

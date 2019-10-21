@@ -1,4 +1,4 @@
-package com.muhammedsafiulazam.henripotier.feature.repositorylist
+package com.muhammedsafiulazam.henripotier.feature.booklist
 
 import android.content.Intent
 import androidx.test.espresso.Espresso.onView
@@ -12,6 +12,7 @@ import com.muhammedsafiulazam.henripotier.core.BaseUITest
 import com.muhammedsafiulazam.henripotier.core.IAfterWait
 import com.muhammedsafiulazam.henripotier.core.IBeforeWait
 import com.muhammedsafiulazam.henripotier.event.Event
+import com.muhammedsafiulazam.henripotier.feature.booklist.event.BookListEventType
 import com.muhammedsafiulazam.henripotier.network.event.book.BookEventType
 import com.muhammedsafiulazam.henripotier.utils.RecyclerViewAssertion.withItemCount
 import org.hamcrest.Matchers.greaterThan
@@ -27,20 +28,20 @@ import org.junit.runner.RunWith
  */
 
 @RunWith(AndroidJUnit4ClassRunner::class)
-class RepositoryListUITest : BaseUITest() {
+class BasketUITest : BaseUITest() {
 
     @Rule @JvmField
-    var mActivityTestRule: ActivityTestRule<RepositoryListActivity> = ActivityTestRule(RepositoryListActivity::class.java, true, false)
+    var mActivityTestRule: ActivityTestRule<BookListActivity> = ActivityTestRule(BookListActivity::class.java, true, false)
 
     @Before
     fun beforeTest() {
     }
 
     @Test
-    fun checkSuccess_loadRepositories() {
-        wait(BookEventType.GET_BOOKS, object : IBeforeWait {
+    fun checkSuccess_loadBooks() {
+        wait(BookListEventType.UPDATE_DATA, object : IBeforeWait {
             override fun beforeWait() {
-                val intent = Intent(getContext(), RepositoryListActivity::class.java)
+                val intent = Intent(getContext(), BookListActivity::class.java)
                 mActivityTestRule.launchActivity(intent)
 
                 onView(withId(R.id.booklist_pgb_loader)).check(matches(isDisplayed()))
